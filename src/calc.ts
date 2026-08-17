@@ -1,15 +1,14 @@
-type Calculator = (a: number, b: number) => number
+function calculate (calculator: (arg0: number, arg1: number) => number): void { 
+    const inputA: HTMLInputElement = document.getElementById("a") as HTMLInputElement 
+    const inputB: HTMLInputElement = document.getElementById("b") as HTMLInputElement
 
-function calculate(calculator: Calculator): void {
-    const inputA = document.getElementById("a") as HTMLInputElement
-    const inputB = document.getElementById("b") as HTMLInputElement
-    const result = calculator(Number(inputA.value), Number(inputB.value))
+    const result: number = calculator (Number (inputA.value), Number(inputB.value))
 
-    document.getElementById("result")!.innerHTML = result.toString()
+    document.getElementById("result").innerHTML = result.toString()
 }
 
-function registerCalculator(id: string, calculator: Calculator): void {
-    document.getElementById(id)!.addEventListener("click", () => {
+function registerCalculator (id: string, calculator: (arg0: number, arg1: number) => number): void { 
+    document.getElementById(id).addEventListener("click", (e: PointerEvent) => {
         calculate(calculator)
     })
 }
@@ -22,15 +21,13 @@ const calculators = {
     "%": (a: number, b: number): number => a % b
 }
 
-(Object.keys(calculators) as Array<keyof typeof calculators>).forEach(key => {
-    registerCalculator(key, calculators[key])
+Object.keys(calculators).forEach((key: string) => registerCalculator(key, calculators [key]))
+
+
+document.getElementById("calculate").addEventListener("click", (e: PointerEvent) => {
+    const select: HTMLSelectElement = document.getElementById("operation") as HTMLSelectElement
+
+    calculate(calculators[select.value])
 })
 
-document.getElementById("calculate")!.addEventListener("click", () => {
-    const select = document.getElementById("operation") as HTMLSelectElement
-    const operation = select.value as keyof typeof calculators
-
-    calculate(calculators[operation])
-})
-
-export {}
+export { }
