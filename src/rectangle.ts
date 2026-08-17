@@ -5,11 +5,24 @@ const ctx: CanvasRenderingContext2D = canvas.getContext("2d")
 
 const xCenter: number = canvas.width / 2
 const yCenter: number = canvas.height / 2
+ 
+const rectangle = {
+    Width: 400,
+    Height: 200,
+    x: xCenter - 200,
+    y: yCenter - 100
+}
+drawRectangle(rectangle, "blue")
 
-const Width = 400
-const Height = 200
-const x = xCenter - (Width / 2)
-const y = yCenter - (Height / 2)
+const rectangle2 = {
+    Width: 200,
+    Height: 100,
+    x: xCenter - 20,
+    y: yCenter - 25
+}
+drawRectangle(rectangle2, "white")
 
-ctx.fillStyle = "blue"
-ctx.fillRect(x, y, Width, Height)
+function drawRectangle(rectangle: { Width: number; Height: number; x: number; y: number }, style: string) {
+    ctx.fillStyle = style
+    ctx.fillRect(rectangle.x, rectangle.y, rectangle.Width, rectangle.Height);
+}
