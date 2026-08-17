@@ -6,13 +6,28 @@
     <title>Document</title>
     <script type="module" src="./build/calc.js"></script>
 </head>
+
 <body>
     <input type="number" id="a">
     <input type="number" id="b">
+
     <button id="+">+</button>
     <button id="-">-</button>
     <button id="*">*</button>
     <button id="/">/</button>
+    <button id="%">%</button>
+
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <button id="calculate">Calculate</button>
+
     <span id="result"></span>
 </body>
+
 </html>
