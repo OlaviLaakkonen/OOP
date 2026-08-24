@@ -13,5 +13,17 @@ const rectangle = {
     height: 200
 }
 
-ctx.fillStyle = "green"
+const circle = {
+    x: xCenter - 20,
+    y: yCenter - 0,
+    radius1: 70,
+    radius2: 0
+}
+
+ctx.fillStyle = "#006A4E"
 ctx.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height)
+
+ctx.fillStyle = "#DA291C"
+ctx.beginPath();
+ctx.arc(circle.x, circle.y, circle.radius1, circle.radius2, circle.radius1 * Math.PI)
+ctx.fill();
