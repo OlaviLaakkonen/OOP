@@ -18,7 +18,33 @@ const rectangle = {
     }
 };
 
-rectangle.draw()
+const rectangle2 = {
+    x: xCenter - 190,
+    y: yCenter - 93,
+    width: 400,
+    height: 200,
+
+    draw: function() {
+        ctx.fillStyle = "#00684cff",
+        ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+};
+
+const rectangle3 = {
+    x: xCenter - 180,
+    y: yCenter - 86,
+    width: 400,
+    height: 200,
+
+    draw: function() {
+        ctx.fillStyle = "#007a5aff",
+        ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+};
+
+rectangle3.draw() // Bottom
+rectangle2.draw() // Middle
+rectangle.draw() // Top
 
 const circle = {
     x: xCenter - 20,
