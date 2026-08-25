@@ -25,7 +25,7 @@ const rectangle2 = {
     height: 200,
 
     draw: function() {
-        ctx.fillStyle = "#00684cff",
+        ctx.fillStyle = "#008a65ff",
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 };
@@ -37,7 +37,7 @@ const rectangle3 = {
     height: 200,
 
     draw: function() {
-        ctx.fillStyle = "#007a5aff",
+        ctx.fillStyle = "#009c73ff",
         ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 };
