@@ -36,7 +36,7 @@ export class circle {
     }
 
     draw() {
-        ctx.fillStyle = "#DA291C"
+        ctx.fillStyle = "#c00d00ff"
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius1, this.radius2, this.radius1 * Math.PI)
         ctx.fill();
