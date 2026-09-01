@@ -3,7 +3,7 @@ export {}
 const canvas: HTMLCanvasElement = document.getElementById("myCanvas") as HTMLCanvasElement
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")
 
-abstract class shape {
+export abstract class shape {
     abstract draw(ctx: CanvasRenderingContext2D): void
 }
 
