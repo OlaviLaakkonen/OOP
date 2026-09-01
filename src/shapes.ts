@@ -4,7 +4,7 @@ const canvas: HTMLCanvasElement = document.getElementById("myCanvas") as HTMLCan
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")
 
 abstract class shape {
-    abstract draw(): void
+    abstract draw(ctx: CanvasRenderingContext2D): void
 }
 
 export class rectangle extends shape {
