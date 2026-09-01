@@ -3,38 +3,40 @@ export {}
 const canvas: HTMLCanvasElement = document.getElementById("myCanvas") as HTMLCanvasElement
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")
 
-export class rectangle {
+abstract class shape {
+    abstract draw(): void
+}
+
+export class rectangle extends shape {
 
     location: Point
     size: Size
-    style: string
 
-    constructor(x: number, y: number, width: number, height: number, style: string) {
+    constructor(x: number, y: number, width: number, height: number) {
+        super()
         this.location = new Point(x, y)
         this.size = new Size(width, height)
-        this.style = style
     }
 
     draw() {
-        ctx.fillStyle = this.style
+        ctx.fillStyle = "#ffffffff"
         ctx.fillRect(this.location.x, this.location.y, this.size.width, this.size.height)
     }
 }
 
-export class circle {
+export class circle extends shape {
 
     center: Point
     radius: number
-    style: string
 
-    constructor(x: number, y: number, radius: number, style: string) {
+    constructor(x: number, y: number, radius: number) {
+        super()
         this.center = new Point(x, y)
         this.radius = radius
-        this.style = style
     }
 
     draw() {
-        ctx.fillStyle = this.style
+        ctx.fillStyle = "#c5170aff"
         ctx.beginPath();
         ctx.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI)
         ctx.fill();
