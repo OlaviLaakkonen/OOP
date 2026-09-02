@@ -1,7 +1,5 @@
-export {}
-
-const canvas: HTMLCanvasElement = document.getElementById("myCanvas") as HTMLCanvasElement
-const ctx: CanvasRenderingContext2D = canvas.getContext("2d")
+const canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
 
 export abstract class shape {
     abstract draw(ctx: CanvasRenderingContext2D): void
@@ -19,7 +17,7 @@ export class rectangle extends shape {
     }
 
     draw() {
-        ctx.fillStyle = "#ffffffff"
+        ctx.fillStyle = "#c5170aff"
         ctx.fillRect(this.location.x, this.location.y, this.size.width, this.size.height)
     }
 }
@@ -36,7 +34,7 @@ export class circle extends shape {
     }
 
     draw() {
-        ctx.fillStyle = "#c5170aff"
+        ctx.fillStyle = "#ffffffff"
         ctx.beginPath();
         ctx.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI)
         ctx.fill();
