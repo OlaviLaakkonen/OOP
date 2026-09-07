@@ -70,7 +70,7 @@ class Point {
         this.y = y
     }
 
-    // fixes location [object Object]
+    // fixes location [object Object] 2.a
     toString(): string {
         return `(${this.x}, ${this.y})`
     }
@@ -86,7 +86,7 @@ class Size {
         this.height = height
     }
 
-    // fixes size [object Object]
+    // fixes size [object Object] 2.a
     toString(): string {
         return `${this.width} x ${this.height}`
     }
