@@ -1,11 +1,11 @@
 const canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d')!;
 
-export abstract class shape {
+export abstract class Shape {
     abstract draw(ctx: CanvasRenderingContext2D): void
 }
 
-export class rectangle extends shape {
+export class rectangle extends Shape {
 
     location: Point
     size: Size
@@ -22,7 +22,7 @@ export class rectangle extends shape {
     }
 }
 
-export class circle extends shape {
+export class circle extends Shape {
 
     center: Point
     radius: number
