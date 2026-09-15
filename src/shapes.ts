@@ -11,23 +11,27 @@ export interface Shape {
 
 export abstract class BaseShape implements Shape {
 
-    style: string
-    
-    constructor(style:string) {
+    private style: string
+
+    constructor(style: string) {
         this.style = style
     }
 
-    abstract draw(ctx: CanvasRenderingContext2D): void
+    public abstract draw(ctx: CanvasRenderingContext2D): void
 
-    toString(): string {
+    public toString(): string {
         return `Shape with style ${this.style}`
+    }
+
+    public getStyle(): string {
+        return this.style
     }
 }
 
 export class rectangle extends BaseShape {
 
-    location: Point
-    size: Size
+    private location: Point
+    private size: Size
 
     constructor(x: number, y: number, width: number, height: number, style: string) {
         super(style)
@@ -35,20 +39,20 @@ export class rectangle extends BaseShape {
         this.size = new Size(width, height)
     }
 
-    draw() {
-        ctx.fillStyle = this.style
+    public draw(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = this.getStyle()
         ctx.fillRect(this.location.x, this.location.y, this.size.width, this.size.height)
     }
 
-    toString(): string {
+    public toString(): string {
         return `Rectangle with location ${this.location}, size ${this.size}, ${super.toString()}`
     }
 }
 
 export class circle extends BaseShape {
 
-    center: Point
-    radius: number
+    private center: Point
+    private radius: number
 
     constructor(x: number, y: number, radius: number, style: string) {
         super(style)
@@ -56,47 +60,60 @@ export class circle extends BaseShape {
         this.radius = radius
     }
 
-    draw() {
-        ctx.fillStyle = this.style
-        ctx.beginPath();
+    public draw(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = this.getStyle()
+        ctx.beginPath()
         ctx.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI)
-        ctx.fill();
+        ctx.fill()
     }
 
-    toString(): string {
+    public toString(): string {
         return `Circle with location ${this.center}, radius ${this.radius}, ${super.toString()}`
     }
 }
 
-class Point {
+export class Point {
 
-    x: number
-    y: number
+    private _x: number
+    private _y: number
 
-    constructor (x = 0, y = 0) {
-        this.x = x
-        this.y = y
+    constructor(x = 0, y = 0) {
+        this._x = x
+        this._y = y
     }
 
-    // fixes location [object Object] 2.a
-    toString(): string {
+    public get x(): number {
+        return this._x
+    }
+
+    public get y(): number {
+        return this._y
+    }
+
+    public toString(): string {
         return `(${this.x}, ${this.y})`
     }
 }
 
-class Size {
+export class Size {
 
-    width: number
-    height: number
+    private _width: number
+    private _height: number
 
-    constructor (width = 0, height = 0) {
-        this.width = width
-        this.height = height
+    constructor(width = 0, height = 0) {
+        this._width = width
+        this._height = height
     }
 
-    // fixes size [object Object] 2.a
-    toString(): string {
+    public get width(): number {
+        return this._width
+    }
+
+    public get height(): number {
+        return this._height
+    }
+
+    public toString(): string {
         return `${this.width} x ${this.height}`
     }
-
 }

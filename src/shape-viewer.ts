@@ -2,25 +2,25 @@ import { Shape } from "./shapes.js";
 
 export class ShapeViewer {
 
-    ctx: CanvasRenderingContext2D
-    shapes: Shape[]
+    private ctx: CanvasRenderingContext2D
+    private shapes: Shape[]
 
-    constructor(canvasElement: HTMLCanvasElement) {
+    public constructor(canvasElement: HTMLCanvasElement) {
         this.ctx = canvasElement.getContext("2d")
         this.shapes = []
     }
  
-    addShapes(shapes: Shape[]): void {
+    public addShapes(shapes: Shape[]): void {
         this.shapes.push(...shapes)
         this.draw()
     }
 
-    addShape(shape: Shape): void {
+    public addShape(shape: Shape): void {
         this.shapes.push(shape)
         this.draw()
     }
 
-    draw(): void {
+    private draw(): void {
         this.shapes.forEach(shape => shape.draw(this.ctx))
     }
 
