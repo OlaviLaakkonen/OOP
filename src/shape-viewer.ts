@@ -1,34 +1,36 @@
 import { Shape } from "./shapes.js";
 
-export class ShapeViewer {
+export class ShapeViewer implements ShapeViewer {
 
-    private ctx: CanvasRenderingContext2D
-    private shapes: Shape[]
+    private _ctx: CanvasRenderingContext2D
+
+    private _shapes: Shape[]
 
     public constructor(canvasElement: HTMLCanvasElement) {
-        this.ctx = canvasElement.getContext("2d")
-        this.shapes = []
+        this._ctx = canvasElement.getContext("2d")
+        this._shapes = []
     }
- 
+
     public addShapes(shapes: Shape[]): void {
-        this.shapes.push(...shapes)
+        this._shapes.push(...shapes)
         this.draw()
+        shapes.forEach(shape => console.log(`Added shape ${shape}`))
     }
 
     public addShape(shape: Shape): void {
-        this.shapes.push(shape)
+        this._shapes.push(shape)
         this.draw()
+        console.log(`Added shape ${shape}`)
     }
 
     private draw(): void {
-        this.shapes.forEach(shape => shape.draw(this.ctx))
+        this._shapes.forEach(shape => {
+            this._ctx.save()
+
+            shape.draw(this._ctx)
+
+            this._ctx.restore()
+        })
     }
 
-    toString(): string {
-        let result = "ShapeViewer with shapes:\n\n"
-
-        this.shapes.forEach(shape => result += shape.toString() + "\n")
-
-        return result
-    }
 }
