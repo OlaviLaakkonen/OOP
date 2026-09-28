@@ -1,15 +1,42 @@
 import { ShapeViewer } from "./shape-viewer.js"
-import { circle, rectangle } from "./shapes.js"
+import { circle, rectangle, square, hexagon, rhombus } from "./shapes.js"
 
-let shapeViewer: ShapeViewer = new ShapeViewer(document.getElementById("canvas") as HTMLCanvasElement)
+let shapeViewer: ShapeViewer = new ShapeViewer(document.getElementById("myCanvas") as HTMLCanvasElement)
 
+/*
+Maldives
+*/
 shapeViewer.addShapes([
-    new rectangle(400, 200, 400, 200, "red"),
-    new rectangle(350, 275, 200, 100, "green"),
-    new rectangle(500, 400, 50, 100, "pink"),
-    new circle(150, 150, 50, "blue"),
-    new circle(650, 150, 100, "gray"),
-    new circle(400, 450, 150, "violet")
+    new rectangle(400, 200, 400, 200, "#C8102E"),
+    new rectangle(450, 230, 300, 140, "#007E3A"),
+    new circle(620, 300, 50, "white"),
+    new circle(640, 300, 50, "#007E3A")
 ])
 
-shapeViewer.addShape(new rectangle(100, 100, 200, 100, "pink"))
+/*
+Verity
+*/
+shapeViewer.addShapes([
+    new circle(200, 200, 150, "yellow"),
+    new square(100, 110, 80, 80, "black"),
+    new square(220, 120, 80, 80, "black"),
+    new rectangle(100, 250, 200, 50, "black")
+])
+
+/*
+Hive
+*/
+shapeViewer.addShapes([
+    new hexagon(150, 550, 50, "#ffd476ff"),
+    new hexagon(230, 505, 50, "#ffd476ff"),
+    new hexagon(150, 460, 50, "#ffd476ff"),
+    new hexagon(230, 412, 50, "#ffd476ff"),
+    new hexagon(70, 505, 50, "#ffd476ff"),
+    new hexagon(310, 457, 50, "#ffd476ff")
+])
+
+shapeViewer.addShapes([
+    new rhombus(150, 550, "#ffd476ff"),
+    new rhombus(230, 505, "#ffd476ff"),
+    new rhombus(150, 460, "#ffd476ff")
+])
