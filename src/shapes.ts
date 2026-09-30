@@ -263,10 +263,10 @@ export class rhombus extends BaseShape {
      * @param location the top-left location of the rhombus.
      * @param style the style used to draw the rhombus.
      */
-    constructor(size: Size, location: Point, style: string) {
+    constructor(x: number, y: number, width: number, height: number, style: string) {
         super(style)
-        this.location = location
-        this.size = size
+        this.location = new Point(x, y)
+        this.size = new Size(width, height)
     }
 
     /**

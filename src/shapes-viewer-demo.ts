@@ -1,28 +1,47 @@
 import { ShapeViewer } from "./shape-viewer.js"
-import { circle, rectangle } from "./shapes.js"
+import { circle, rectangle, square, hexagon, rhombus } from "./shapes.js"
 
 const shapeViewer: ShapeViewer = new ShapeViewer(document.getElementById("myCanvas") as HTMLCanvasElement)
 
 shapeViewer.addShapes([
-    new rectangle(100, 200, 200, 300, "dodgerblue"),
-    new rectangle(350, 200, 100, 100, "dodgerblue"),
-    new rectangle(300, 400, 200, 100, "dodgerblue"),
-    new rectangle(500, 200, 200, 300, "dodgerblue"),
-
-    new circle(100, 200, 50, "white"),
-    new circle(700, 200, 50, "white"),
-    new circle(100, 500, 50, "white"),
-    new circle(700, 500, 50, "white"),
-    
-    new circle(450, 200, 50, "white"),
-    new circle(350, 200, 50, "white"),
-    new circle(350, 300, 50, "white"),
-    new circle(450, 300, 50, "white"),
-    
-    new circle(300, 200, 50, "white"),
-    new circle(500, 200, 50, "white"),
-    new circle(300, 400, 50, "white"),
-    new circle(500, 400, 50, "white"),
+/*
+Maldives
+*/
+    new rectangle(400, 200, 400, 200, "#C8102E"),
+    new rectangle(450, 230, 300, 140, "#007E3A"),
+    new circle(620, 300, 50, "white"),
+    new circle(640, 300, 50, "#007E3A"),
+/*
+Verity
+*/
+    new circle(200, 200, 150, "yellow"),
+    new square(100, 110, 80, 80, "black"),
+    new square(220, 120, 80, 80, "black"),
+    new rectangle(100, 250, 200, 50, "black"),
+/*
+Hive
+*/
+    new hexagon(150, 550, 50, "#ffd476ff"),
+    new hexagon(230, 505, 50, "#ffd476ff"),
+    new hexagon(150, 460, 50, "#ffd476ff"),
+    new hexagon(230, 412, 50, "#ffd476ff"),
+    new hexagon(70, 505, 50, "#ffd476ff"),
+    new hexagon(310, 457, 50, "#ffd476ff"),
+/*
+Jussi
+*/
+    new rhombus(400, 450, 50, 100, "red"),
+    new rhombus(450, 450, 50, 100, "red"),
+    new rhombus(500, 450, 50, 100, "red"),
+    new rhombus(550, 450, 50, 100, "red"),
+    new rhombus(600, 450, 50, 100, "red"),
+    new rhombus(650, 450, 50, 100, "red"),
+    new rhombus(425, 500, 50, 100, "black"),
+    new rhombus(475, 500, 50, 100, "black"),
+    new rhombus(525, 500, 50, 100, "black"),
+    new rhombus(575, 500, 50, 100, "black"),
+    new rhombus(625, 500, 50, 100, "black"),
+    new rhombus(675, 500, 50, 100, "black")
 ])
 
 console.log(shapeViewer.toString())
