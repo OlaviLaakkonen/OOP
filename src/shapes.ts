@@ -8,6 +8,7 @@ export interface Shape {
 
     /**
      * Draws the shape on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the shape.
      */
     draw(ctx: CanvasRenderingContext2D): void
@@ -29,6 +30,7 @@ export abstract class BaseShape implements Shape {
 
     /**
      * Constructs and initializes a BaseShape with the specified style.
+     * 
      * @param style the style used to draw the shape.
      */
     constructor(style: string) {
@@ -38,6 +40,7 @@ export abstract class BaseShape implements Shape {
     /**
      * Draws the shape on the specified canvas context.
      * This method must be implemented by subclasses.
+     * 
      * @param ctx the canvas rendering context used to draw the shape.
      */
     public abstract draw(ctx: CanvasRenderingContext2D): void
@@ -51,6 +54,7 @@ export abstract class BaseShape implements Shape {
 
     /**
      * Gets the style used to draw the shape.
+     * 
      * @returns the style of the shape.
      */
     public getStyle(): string {
@@ -71,10 +75,15 @@ export class rectangle extends BaseShape {
 
     /**
      * Constructs and initializes a rectangle with the specified location, size, and style.
+     * 
      * @param x the X coordinate of the rectangle.
+     * 
      * @param y the Y coordinate of the rectangle.
+     * 
      * @param width the width of the rectangle.
+     * 
      * @param height the height of the rectangle.
+     * 
      * @param style the style used to draw the rectangle.
      */
     constructor(x: number, y: number, width: number, height: number, style: string) {
@@ -85,6 +94,7 @@ export class rectangle extends BaseShape {
 
     /**
      * Draws the rectangle on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the rectangle.
      */
     public draw(ctx: CanvasRenderingContext2D): void {
@@ -113,9 +123,13 @@ export class circle extends BaseShape {
 
     /**
      * Constructs and initializes a circle with the specified center, radius, and style.
+     * 
      * @param x the X coordinate of the center of the circle.
+     * 
      * @param y the Y coordinate of the center of the circle.
+     * 
      * @param radius the radius of the circle.
+     * 
      * @param style the style used to draw the circle.
      */
     constructor(x: number, y: number, radius: number, style: string) {
@@ -126,6 +140,7 @@ export class circle extends BaseShape {
 
     /**
      * Draws the circle on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the circle.
      */
     public draw(ctx: CanvasRenderingContext2D): void {
@@ -156,10 +171,15 @@ export class square extends BaseShape {
 
     /**
      * Constructs and initializes a square with the specified location, size, and style.
+     * 
      * @param x the X coordinate of the square.
+     * 
      * @param y the Y coordinate of the square.
+     * 
      * @param width the width of the square.
+     * 
      * @param height the height of the square.
+     * 
      * @param style the style used to draw the square.
      */
     constructor(x: number, y: number, width: number, height: number, style: string) {
@@ -170,6 +190,7 @@ export class square extends BaseShape {
 
     /**
      * Draws the square on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the square.
      */
     public draw(ctx: CanvasRenderingContext2D): void {
@@ -198,9 +219,13 @@ export class hexagon extends BaseShape {
 
     /**
      * Constructs and initializes a hexagon.
+     * 
      * @param x the X coordinate of the center.
+     * 
      * @param y the Y coordinate of the center.
+     * 
      * @param radius the radius of the hexagon.
+     * 
      * @param style the style used to draw the hexagon.
      */
     constructor(x: number, y: number, radius: number, style: string) {
@@ -211,6 +236,7 @@ export class hexagon extends BaseShape {
 
     /**
      * Draws the hexagon on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the hexagon.
      */
     public draw(ctx: CanvasRenderingContext2D): void {
@@ -259,8 +285,11 @@ export class rhombus extends BaseShape {
 
     /**
      * Constructs and initializes a rhombus.
+     * 
      * @param size the width and height of the rhombus.
+     * 
      * @param location the top-left location of the rhombus.
+     * 
      * @param style the style used to draw the rhombus.
      */
     constructor(x: number, y: number, width: number, height: number, style: string) {
@@ -271,6 +300,7 @@ export class rhombus extends BaseShape {
 
     /**
      * Draws the rhombus on the specified canvas context.
+     * 
      * @param ctx the canvas rendering context used to draw the rhombus.
      */
     public draw(ctx: CanvasRenderingContext2D): void {
@@ -323,7 +353,9 @@ export class Point {
 
     /**
      * Constructs and initializes a Point instance using the specified X and Y coordinates.
+     * 
      * @param x the X coordinate of the newly created point.
+     * 
      * @param y the Y coordinate of the newly created point.
      */
     public constructor(x: number, y: number) {
@@ -367,7 +399,9 @@ export class Size {
 
     /**
      * Constructs and initializes a Size instance.
+     * 
      * @param width the width of the object. Defaults to 0.
+     * 
      * @param height the height of the object. Defaults to 0.
      */
     constructor(width = 0, height = 0) {
