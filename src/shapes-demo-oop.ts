@@ -36,7 +36,7 @@ shapeViewer.addShapes([
 ])
 
 shapeViewer.addShapes([
-    new rhombus(150, 550, "#ffd476ff"),
-    new rhombus(230, 505, "#ffd476ff"),
-    new rhombus(150, 460, "#ffd476ff")
+    new rhombus(150, 550, 100, 50, "red"),
+    new rhombus(230, 505, 100, 50, "red"),
+    new rhombus(150, 460, 100, 50, "red")
 ])

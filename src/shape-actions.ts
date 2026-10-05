@@ -78,11 +78,11 @@ export class AddShapeAction extends BaseAction {
     } 
 
     public get name() {
-        return this._shapeClass.name
+        return `Add ${this._shapeClass.name}`
     }
 
     public get status() {
-        return `Click to add a ${this.name}`
+        return `Click to add a ${this._shapeClass.name}`
     }
 
     public onClick(e: MouseEvent): void {
