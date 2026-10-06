@@ -113,6 +113,7 @@ export class SelectAction extends BaseAction {
     */
     public onClick(e: MouseEvent): void {
         // TODO: Implement this later
+        console.log("Select action performed")
     }
 
 }
@@ -159,6 +160,7 @@ export class AddShapeAction extends BaseAction {
     */
     public onClick(e: MouseEvent): void {
         // TODO: Implement this later
+        console.log(`Add ${this._shapeClass.name} shape action performed`)
     }
 
 }

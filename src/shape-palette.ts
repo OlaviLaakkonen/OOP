@@ -115,7 +115,7 @@ export class PaletteComponent {
     *
     * @param selectedAction action that should become selected.
     */
-    private set selectedAction(selectedAction: CanvasAction) {
+    public set selectedAction(selectedAction: CanvasAction) {
         const prevAction = this._selectedAction
         this._selectedAction = selectedAction
 
