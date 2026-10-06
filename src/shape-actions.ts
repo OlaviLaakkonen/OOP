@@ -1,5 +1,5 @@
-import { ShapeViewer } from "./shape-viewer"
-import { Shape } from "./shapes"
+import { ShapeViewer } from "./shape-viewer.js"
+import { Shape, rectangle, circle } from "./shapes.js"
 
 /**
 * Defines the action protocol used by various components.
@@ -159,8 +159,8 @@ export class AddShapeAction extends BaseAction {
     * @param e browser mouse event.
     */
     public onClick(e: MouseEvent): void {
-        // TODO: Implement this later
         console.log(`Add ${this._shapeClass.name} shape action performed`)
+        const shape = this._shapeClass.initWithXY(e.offsetX, e.offsetY)
+        this.shapeViewer.addShape(shape)
     }
-
 }

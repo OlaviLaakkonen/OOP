@@ -25,6 +25,10 @@ export interface Shape {
  */
 export abstract class BaseShape implements Shape {
 
+    public static initWithXY(x: number, y: number): Shape {
+        throw Error("Impliment this method")
+    }
+
     // The style used to draw the shape.
     private style: string
 
@@ -66,6 +70,10 @@ export abstract class BaseShape implements Shape {
  * Represents a rectangle that can be drawn on a 2D canvas.
  */
 export class rectangle extends BaseShape {
+
+    public static initWithXY(x: number, y: number) {
+        return new rectangle(x, y, 100, 100, "lightyellow")
+    }
 
     // The location of the top-left corner of the rectangle.
     private location: Point
