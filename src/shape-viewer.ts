@@ -13,6 +13,7 @@ export class ShapeViewer implements ShapeViewer {
 
     /**
      * Constructs and initializes a ShapeViewer using the specified canvas element.
+     * 
      * @param canvasElement the canvas element used to display the shapes.
      */
     public constructor(canvasElement: HTMLCanvasElement) {
@@ -22,6 +23,7 @@ export class ShapeViewer implements ShapeViewer {
 
     /**
      * Adds multiple shapes to the viewer and draws them on the canvas.
+     * 
      * @param shapes the shapes to add to the viewer.
      */
     public addShapes(shapes: Shape[]): void {
@@ -32,6 +34,7 @@ export class ShapeViewer implements ShapeViewer {
 
     /**
      * Adds a single shape to the viewer and draws it on the canvas.
+     * 
      * @param shape the shape to add to the viewer.
      */
     public addShape(shape: Shape): void {

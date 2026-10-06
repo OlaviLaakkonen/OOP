@@ -35,8 +35,14 @@ shapeViewer.addShapes([
     new hexagon(310, 457, 50, "#ffd476ff")
 ])
 
+/*
+Jussi
+*/
 shapeViewer.addShapes([
-    new rhombus(150, 550, 100, 50, "red"),
-    new rhombus(230, 505, 100, 50, "red"),
-    new rhombus(150, 460, 100, 50, "red")
+    new rhombus(400, 450, 50, 100, "red"),
+    new rhombus(450, 450, 50, 100, "red"),
+    new rhombus(500, 450, 50, 100, "red"),
+    new rhombus(425, 500, 50, 100, "black"),
+    new rhombus(475, 500, 50, 100, "black"),
+    new rhombus(525, 500, 50, 100, "black")
 ])
