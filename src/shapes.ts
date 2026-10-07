@@ -72,7 +72,7 @@ export abstract class BaseShape implements Shape {
 export class rectangle extends BaseShape {
 
     public static initWithXY(x: number, y: number) {
-        return new rectangle(x, y, 100, 100, "lightyellow")
+        return new rectangle(x, y, 100, 100, "darkred")
     }
 
     // The location of the top-left corner of the rectangle.
@@ -122,6 +122,10 @@ export class rectangle extends BaseShape {
  * Represents a circle that can be drawn on a 2D canvas.
  */
 export class circle extends BaseShape {
+
+    public static initWithXY(x: number, y: number) {
+        return new circle(x, y, 100, "darkred")
+    }
 
     // The center point of the circle.
     private center: Point

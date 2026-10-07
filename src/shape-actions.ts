@@ -1,5 +1,5 @@
 import { ShapeViewer } from "./shape-viewer.js"
-import { Shape, rectangle, circle } from "./shapes.js"
+import { Shape } from "./shapes.js"
 
 /**
 * Defines the action protocol used by various components.
