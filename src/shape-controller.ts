@@ -1,4 +1,4 @@
-import { PaletteListener, SelectedActionChangedEvent } from "./shape-palette";
+import { PaletteListener, SelectedActionChangedEvent } from "./shape-palette.js";
 import { CanvasAction } from "./shape-actions.js";
 
 export class CanvasController implements PaletteListener {

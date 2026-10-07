@@ -6,12 +6,16 @@ const ctx = canvas.getContext('2d')!;
  */
 export interface Shape {
 
+    readonly path: Path2D
+
     /**
      * Draws the shape on the specified canvas context.
      * 
      * @param ctx the canvas rendering context used to draw the shape.
      */
     draw(ctx: CanvasRenderingContext2D): void
+
+    drawSelectionBorder(ctx: CanvasRenderingContext2D): void
 
     /**
      * @returns a string representation of the shape.
@@ -47,7 +51,26 @@ export abstract class BaseShape implements Shape {
      * 
      * @param ctx the canvas rendering context used to draw the shape.
      */
-    public abstract draw(ctx: CanvasRenderingContext2D): void
+    public draw(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = this.style
+        ctx.fill(this.path)
+    }
+
+    public drawSelectionBorder(ctx: CanvasRenderingContext2D): void {
+        ctx.strokeStyle = "black"
+        ctx.lineWidth = 3
+        ctx.stroke(this.path)
+    }
+
+    public get path(): Path2D {
+        const path: Path2D = new Path2D()
+
+        this.setupPath(path)
+
+        return path
+    }
+
+    protected abstract setupPath(path: Path2D): void
 
     /**
      * @returns a string containing the shape style.
@@ -72,7 +95,7 @@ export abstract class BaseShape implements Shape {
 export class rectangle extends BaseShape {
 
     public static initWithXY(x: number, y: number) {
-        return new rectangle(x, y, 100, 100, "darkred")
+        return new rectangle(x, y, 150, 100, "teal")
     }
 
     // The location of the top-left corner of the rectangle.
@@ -100,14 +123,8 @@ export class rectangle extends BaseShape {
         this.size = new Size(width, height)
     }
 
-    /**
-     * Draws the rectangle on the specified canvas context.
-     * 
-     * @param ctx the canvas rendering context used to draw the rectangle.
-     */
-    public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.fillStyle = this.getStyle()
-        ctx.fillRect(this.location.x, this.location.y, this.size.width, this.size.height)
+    protected setupPath(path: Path2D): void {
+        path.rect(this.location.x, this.location.y, this.size.width, this.size.height)
     }
 
     /**
@@ -124,7 +141,7 @@ export class rectangle extends BaseShape {
 export class circle extends BaseShape {
 
     public static initWithXY(x: number, y: number) {
-        return new circle(x, y, 100, "darkred")
+        return new circle(x, y, 50, "darkred")
     }
 
     // The center point of the circle.
@@ -150,16 +167,8 @@ export class circle extends BaseShape {
         this.radius = radius
     }
 
-    /**
-     * Draws the circle on the specified canvas context.
-     * 
-     * @param ctx the canvas rendering context used to draw the circle.
-     */
-    public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.fillStyle = this.getStyle()
-        ctx.beginPath()
-        ctx.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI)
-        ctx.fill()
+    protected setupPath(path: Path2D): void {
+        path.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI)
     }
 
     /**
@@ -174,6 +183,10 @@ export class circle extends BaseShape {
  * Represents a square that can be drawn on a 2D canvas.
  */
 export class square extends BaseShape {
+
+    public static initWithXY(x: number, y: number) {
+        return new square(x, y, 100, 100, "cyan")
+    }
 
     // The location of the top-left corner of the square.
     private location: Point
@@ -200,14 +213,8 @@ export class square extends BaseShape {
         this.size = new Size(width, height)
     }
 
-    /**
-     * Draws the square on the specified canvas context.
-     * 
-     * @param ctx the canvas rendering context used to draw the square.
-     */
-    public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.fillStyle = this.getStyle()
-        ctx.fillRect(this.location.x, this.location.y, this.size.width, this.size.height)
+    protected setupPath(path: Path2D): void {
+        path.rect(this.location.x, this.location.y, this.size.width, this.size.height)
     }
 
     /**
@@ -222,6 +229,10 @@ export class square extends BaseShape {
  * Represents a hexagon that can be drawn on a 2D canvas.
  */
 export class hexagon extends BaseShape {
+
+    public static initWithXY(x: number, y: number) {
+        return new hexagon(x, y, 50, "orange")
+    }
 
     // The center point of the hexagon.
     private center: Point
@@ -246,15 +257,8 @@ export class hexagon extends BaseShape {
         this.radius = radius
     }
 
-    /**
-     * Draws the hexagon on the specified canvas context.
-     * 
-     * @param ctx the canvas rendering context used to draw the hexagon.
-     */
-    public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.fillStyle = this.getStyle()
-
-        ctx.beginPath()
+    protected setupPath(path: Path2D): void {
+               ctx.beginPath()
 
         /**
          * Calculate and connect the six vertices of the hexagon.
@@ -289,6 +293,10 @@ export class hexagon extends BaseShape {
 */
 export class rhombus extends BaseShape {
 
+    public static initWithXY(x: number, y: number) {
+        return new rhombus(x, y, 50, 80, "pink")
+    }
+
     // The location of the top-left corner of the rhombus.
     private location: Point
 
@@ -310,40 +318,33 @@ export class rhombus extends BaseShape {
         this.size = new Size(width, height)
     }
 
-    /**
-     * Draws the rhombus on the specified canvas context.
-     * 
-     * @param ctx the canvas rendering context used to draw the rhombus.
-     */
-    public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.fillStyle = this.getStyle()
-
+    protected setupPath(path: Path2D): void {
         ctx.beginPath()
 
-        ctx.moveTo(
-            this.location.x + this.size.width / 2,
-            this.location.y
-        )
+            ctx.moveTo(
+                this.location.x + this.size.width / 2,
+                this.location.y
+            )
 
-        ctx.lineTo(
-            this.location.x + this.size.width,
-            this.location.y + this.size.height / 2
-        )
+            ctx.lineTo(
+                this.location.x + this.size.width,
+                this.location.y + this.size.height / 2
+            )
 
-        ctx.lineTo(
-            this.location.x + this.size.width / 2,
-            this.location.y + this.size.height
-        )
+            ctx.lineTo(
+                this.location.x + this.size.width / 2,
+                this.location.y + this.size.height
+            )
 
-        ctx.lineTo(
-            this.location.x,
-            this.location.y + this.size.height / 2
-        )
+            ctx.lineTo(
+                this.location.x,
+                this.location.y + this.size.height / 2
+            )
 
-        ctx.closePath()
-        ctx.fill()
+            ctx.closePath()
+            ctx.fill()
     }
-    
+
     /**
      * @returns a string containing the rhombus's location, size, and style.
      */

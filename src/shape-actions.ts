@@ -112,8 +112,15 @@ export class SelectAction extends BaseAction {
     * @param e browser mouse event.
     */
     public onClick(e: MouseEvent): void {
-        // TODO: Implement this later
         console.log("Select action performed")
+
+        const shape: Shape = this.shapeViewer.getShapeAt(e.offsetX, e.offsetY)
+
+        if (shape) {
+            this.shapeViewer.selectShape(shape)
+        } else {
+            this.shapeViewer.clearSelection()
+        }
     }
 
 }
